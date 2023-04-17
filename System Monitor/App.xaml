@@ -9,13 +9,13 @@
             <Setter Property="Background" Value="#191b26"/>
             <Setter Property="BorderBrush" Value="#464a63"/>
             <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Padding" Value="16"/>
+            <Setter Property="Padding" Value="10 0 10 10"/>
             <Setter Property="CornerRadius" Value="5"/>
         </Style>
 
         <Style x:Key="titleText" TargetType="TextBlock">
             <Setter Property="Foreground" Value="#fcfafa"/>
-            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
         </Style>
         

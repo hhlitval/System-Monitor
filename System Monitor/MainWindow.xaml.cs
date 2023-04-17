@@ -23,13 +23,17 @@ namespace System_Monitor
             timer.Start();
         }
 
-        void timer_Tick(object sender, EventArgs e)
+        void timer_Tick(object? sender, EventArgs e)
         {            
             cpuProgressBar.Value = (double)performanceCPU.NextValue();
             cpuLabel.Content = cpuProgressBar.Value;
+            cpuTimeLabel.Content = cpuProgressBar.Value; //This line defines the process time, not the above ones
+            osCpuUsageLabel.Content = cpuProgressBar.Value;
+            userCpuUsageLabel.Content = cpuProgressBar.Value;
 
             ramProgressBar.Value = (double)performanceRAM.NextValue();
             ramLabel.Content = (double)performanceRAM.NextValue();
+            
             //labelPageFile.Content = (double)performancePageFile.NextValue();
         }
     }
