@@ -14,10 +14,10 @@
 
             <Setter Property="Fill">
                 <Setter.Value>
-                    <LinearGradientBrush>
-                        <GradientStop Color="#2e3966" Offset="0.1"/>
-                        <GradientStop Color="#21304a" Offset="0.5"/>
-                        <GradientStop Color="#21304a" Offset="1.0"/>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#6daefc" Offset="0.1"/>
+                        <GradientStop Color="#2889fc" Offset="0.4"/>
+                        <GradientStop Color="#21304a" Offset="1"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>

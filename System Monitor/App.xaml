@@ -17,14 +17,21 @@
             <Setter Property="Foreground" Value="#fcfafa"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-        </Style>
+        </Style>        
         
-        <SolidColorBrush x:Key="ProgressBar.Progress" Color="#FF06B025"/>
         <SolidColorBrush x:Key="ProgressBar.Background" Color="#FFE6E6E6"/>
         <SolidColorBrush x:Key="ProgressBar.Border" Color="#FFBCBCBC"/>
         
-        <Style x:Key="ProgressBarStyle" TargetType="{x:Type ProgressBar}">
-            <Setter Property="Foreground" Value="{StaticResource ProgressBar.Progress}"/>
+        <Style x:Key="ProgressBarStyle" TargetType="{x:Type ProgressBar}">            
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#6daefc" Offset="0.1"/>
+                        <GradientStop Color="#2889fc" Offset="0.4"/>
+                        <GradientStop Color="#374c70" Offset="1"/>                       
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
             <Setter Property="Background" Value="{Binding Background, ElementName=border}"/>
             <Setter Property="BorderBrush" Value="{StaticResource ProgressBar.Border}"/>
             <Setter Property="BorderThickness" Value="0"/>
