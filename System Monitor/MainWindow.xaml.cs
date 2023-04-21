@@ -18,7 +18,10 @@ namespace System_Monitor
         PerformanceCounter userCPU = new PerformanceCounter("Processor", "% User Time", "_Total");
 
         PerformanceCounter performanceRAM = new PerformanceCounter("Memory", "% Committed Bytes In Use");
-        PerformanceCounter freeRAM = new PerformanceCounter("Memory", "Available MBytes");        
+        PerformanceCounter freeRAM = new PerformanceCounter("Memory", "Available MBytes");
+
+        PerformanceCounter sentBytesPerSecond = new PerformanceCounter("Network Interface", "Bytes Sent/sec", "Qualcomm Atheros QCA9377 Wireless Network Adapter");
+        PerformanceCounter receivedBytesPerSecond = new PerformanceCounter("Network Interface", "Bytes Received/sec", "Qualcomm Atheros QCA9377 Wireless Network Adapter");
 
         public MainWindow()
         {
@@ -41,7 +44,13 @@ namespace System_Monitor
             //RAM Usage
             ramProgressBar.Value = (double)performanceRAM.NextValue();
             ramLabel.Content = ramProgressBar.Value;
+
+            diskSpaceTotalLabel.Content = ((double)performanceRAM.NextValue())/100;
+            diskCLabel.Content = ((double)performanceRAM.NextValue())/100;
+            diskDLabel.Content = ((double)performanceRAM.NextValue())/100;
             
+            networkSentBytesLabel.Content = ((double)sentBytesPerSecond.NextValue())*8/1000000;
+            networkReceivedBytesLabel.Content = ((double)receivedBytesPerSecond.NextValue())*8/1000000;
             //labelPageFile.Content = (double)performancePageFile.NextValue();
         }
 

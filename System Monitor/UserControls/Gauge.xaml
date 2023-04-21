@@ -5,17 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:local="clr-namespace:System_Monitor.UserControls"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d"              
+             Name="gauge">
     <Grid>    
-        <lvc:Gauge Margin="5"
-                   Uses360Mode="True"
-                   From="0" To="100" Value="78">
+        <lvc:Gauge Margin="5" Uses360Mode="True" From="0" To="100" Value="78" 
+                   Foreground="Transparent" InnerRadius="{Binding Path=Radius, ElementName=gauge}" >
             <lvc:Gauge.GaugeActiveFill>
                 <LinearGradientBrush>
-                    <GradientStop Color="#6daefc" Offset="0.1"/>
-                    <GradientStop Color="#2889fc" Offset="0.4"/>
-                    <GradientStop Color="#21304a" Offset="1"/>
+                    <GradientStop Color="{Binding Path=Foreground1, ElementName=gauge}" Offset="0"/>
+                    <GradientStop Color="{Binding Path=Foreground2, ElementName=gauge}" Offset="1"/>                    
                 </LinearGradientBrush>
             </lvc:Gauge.GaugeActiveFill>
             <lvc:Gauge.GaugeRenderTransform>
@@ -23,7 +21,7 @@
                     <RotateTransform Angle="270"></RotateTransform>
                     <ScaleTransform ScaleX="1"></ScaleTransform>
                 </TransformGroup>
-            </lvc:Gauge.GaugeRenderTransform>
+            </lvc:Gauge.GaugeRenderTransform> 
         </lvc:Gauge> 
     </Grid>
 </UserControl>

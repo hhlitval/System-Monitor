@@ -76,8 +76,8 @@
                                Margin="5 0 5 0" 
                                BorderBrush="#464a63" BorderThickness="0.8"/>
 
-                    <linechart:LineChart x:Name="cpuChart" Grid.Row="1" Grid.ColumnSpan="4"
-                                         />
+                    <linechart:LineChart x:Name="cpuChart" Grid.Row="1" Grid.ColumnSpan="4"/>
+                    
                     <Separator Grid.Row="1" Grid.ColumnSpan="4" VerticalAlignment="Bottom" 
                                Margin="5 0 5 0" 
                                BorderBrush="#464a63" BorderThickness="0.8"/>
@@ -103,7 +103,7 @@
                                FontWeight="SemiBold"
                                VerticalContentAlignment="Center"      
                                Padding="0"
-                               ContentStringFormat="{}{0:F1}" 
+                               ContentStringFormat="{} {0:F1}" 
                                HorizontalAlignment="Left" VerticalAlignment="Top" 
                                HorizontalContentAlignment="Left"
                            Margin="5 5 0 0" />
@@ -170,17 +170,12 @@
                     <Separator Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Bottom" 
                                Margin="5 0 5 0" 
                                BorderBrush="#464a63" BorderThickness="0.8"/>
-                    <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Processor Time"
+                    <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Used"
                                FontSize="12" FontWeight="SemiBold"
                                VerticalAlignment="Bottom" 
                                Margin="5 0 0 0" 
                                Foreground="#464a63"/>
-                    <TextBlock Grid.Row="1" Grid.Column="2" Text="OS"
-                               FontSize="12" FontWeight="SemiBold"
-                               VerticalAlignment="Bottom" 
-                               Margin="5 0 0 0" 
-                               Foreground="#464a63"/>
-                    <TextBlock Grid.Row="1" Grid.Column="3" Text="User"
+                    <TextBlock Grid.Row="1" Grid.Column="2" Text="Free"
                                FontSize="12" FontWeight="SemiBold"
                                VerticalAlignment="Bottom" 
                                Margin="5 0 0 0" 
@@ -221,10 +216,12 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="45"/>
-                        <RowDefinition Height="100"/>
-                        <RowDefinition Height="100"/>
-                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="30"/>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>                        
+                        <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -234,31 +231,93 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Text="Disk Usage" Grid.ColumnSpan="2" Style="{StaticResource titleText}" Margin="5 0 0 0"
-                               VerticalAlignment="Center" HorizontalAlignment="Left"/>                   
-                    
+                               VerticalAlignment="Center" HorizontalAlignment="Left"/>                    
+
                     <Separator Grid.Row="0" Grid.ColumnSpan="4" VerticalAlignment="Bottom" 
                                Margin="5 0 5 0" 
                                BorderBrush="#464a63" BorderThickness="0.8"/>
 
-                    <linechart:Gauge Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-                    <linechart:Gauge Grid.Row="1" Grid.Column="2"/>
-                    <linechart:Gauge x:Name="diskCGauge" Grid.Row="2" Grid.Column="2"/>
+                    <!-- Total Disk Space -->
+                    <TextBlock Text="Total Disk Space" Grid.Row="2" Grid.ColumnSpan="2" 
+                               Style="{StaticResource titleText}" FontSize="14"
+                               VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
-                    <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="Processor Time"
+                    <linechart:Gauge Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2" 
+                                     Radius="60"
+                                     Foreground1="#0a7af2"                                     
+                                     Foreground2="#05f4fc"/>
+                    <Label x:Name="diskSpaceTotalLabel" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                           Foreground="#fcfafa" FontSize="15"
+                               FontWeight="SemiBold"
+                               VerticalContentAlignment="Center" HorizontalContentAlignment="Center"     
+                               Padding="0"
+                               ContentStringFormat="{}{0:P1}" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="5" Grid.Column="0" Text="Used"
                                FontSize="12" FontWeight="SemiBold"
                                VerticalAlignment="Bottom" 
                                Margin="5 0 0 0" 
                                Foreground="#464a63"/>
-                    <TextBlock Grid.Row="2" Grid.Column="2" Text="OS"
+
+                    <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                           Foreground="#fcfafa" FontSize="15"
+                               FontWeight="SemiBold"
+                               VerticalContentAlignment="Center"      
+                               Padding="0"
+                               ContentStringFormat="{}{0:F1}" 
+                               HorizontalAlignment="Left" VerticalAlignment="Top" 
+                               HorizontalContentAlignment="Left"/>
+                    <TextBlock Grid.Row="5" Grid.Column="1" Text="Free"
                                FontSize="12" FontWeight="SemiBold"
                                VerticalAlignment="Bottom" 
                                Margin="5 0 0 0" 
                                Foreground="#464a63"/>
-                    <TextBlock Grid.Row="2" Grid.Column="3" Text="User"
-                               FontSize="12" FontWeight="SemiBold"
-                               VerticalAlignment="Bottom" 
-                               Margin="5 0 0 0" 
-                               Foreground="#464a63"/>                    
+
+                    <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"
+                           Foreground="#fcfafa" FontSize="15"
+                               FontWeight="SemiBold"
+                               VerticalContentAlignment="Center"      
+                               Padding="0"
+                               ContentStringFormat="{}{0:F1}" 
+                               HorizontalAlignment="Left" VerticalAlignment="Top" 
+                               HorizontalContentAlignment="Left"/>
+
+                    <!-- Disk C -->
+                    <TextBlock Text="Disk C" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" 
+                               Style="{StaticResource titleText}" FontSize="12"
+                               VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                               />
+
+                    <linechart:Gauge Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                                     Radius="35"
+                                     Foreground1="#0a7af2"                                     
+                                     Foreground2="#fa6e02"/>
+
+                    <Label x:Name="diskCLabel" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                           Foreground="#fcfafa" FontSize="15"
+                               FontWeight="SemiBold"
+                               VerticalContentAlignment="Center" HorizontalContentAlignment="Center"     
+                               Padding="0"
+                               ContentStringFormat="{}{0:P1}" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    <!-- Disk D -->
+                    <TextBlock Text="Disk D" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" 
+                               Style="{StaticResource titleText}" FontSize="12"
+                               VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                               />
+                    <linechart:Gauge x:Name="diskCGauge" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                                     Radius="35"
+                                     Foreground1="#0a7af2"                                     
+                                     Foreground2="#ed0a02"/>
+                    <Label x:Name="diskDLabel" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                           Foreground="#fcfafa" FontSize="15"
+                               FontWeight="SemiBold"
+                               VerticalContentAlignment="Center" HorizontalContentAlignment="Center"     
+                               Padding="0"
+                               ContentStringFormat="{}{0:P1}" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                      
                 </Grid>
             </Border>
 
@@ -283,49 +342,55 @@
                     <Separator Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Bottom" 
                                Margin="5 0 5 0" 
                                BorderBrush="#464a63" BorderThickness="0.8"/>
-                    <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Processor Time"
+                    <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Sent"
                                FontSize="12" FontWeight="SemiBold"
                                VerticalAlignment="Bottom" 
                                Margin="5 0 0 0" 
                                Foreground="#464a63"/>
-                    <TextBlock Grid.Row="1" Grid.Column="2" Text="OS"
+                    <TextBlock Grid.Row="1" Grid.Column="2" Text="Received"
                                FontSize="12" FontWeight="SemiBold"
                                VerticalAlignment="Bottom" 
                                Margin="5 0 0 0" 
-                               Foreground="#464a63"/>
-                    <TextBlock Grid.Row="1" Grid.Column="3" Text="User"
-                               FontSize="12" FontWeight="SemiBold"
-                               VerticalAlignment="Bottom" 
-                               Margin="5 0 0 0" 
-                               Foreground="#464a63"/>
+                               Foreground="#464a63"/>                    
 
-                    <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
-                           Foreground="#fcfafa" FontSize="15"
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="networkSentBytesLabel" Grid.Column="0" 
+                               Foreground="#fcfafa" FontSize="15"
                                FontWeight="SemiBold"
                                VerticalContentAlignment="Center"      
                                Padding="0"
                                ContentStringFormat="{}{0:F1}" 
-                               HorizontalAlignment="Left" VerticalAlignment="Top" 
+                               HorizontalAlignment="Left" VerticalAlignment="Center" 
                                HorizontalContentAlignment="Left"
-                           Margin="5 5 0 0" />
-                    <Label Grid.Row="3" Grid.Column="2"
-                           Foreground="#fcfafa" FontSize="15"
+                           Margin="5 0 0 0" />
+                        
+                        <TextBlock Text="Mb/s" Grid.Column="1" Foreground="#fcfafa" FontSize="15"
+                                   VerticalAlignment="Center" FontWeight="SemiBold"
+                                   HorizontalAlignment="Center" />
+                    </Grid>
+                    <Grid Grid.Row="3" Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="networkReceivedBytesLabel" Foreground="#fcfafa" FontSize="15"
                                FontWeight="SemiBold"
                                VerticalContentAlignment="Center"      
                                Padding="0"
                                ContentStringFormat="{}{0:F1}" 
-                               HorizontalAlignment="Left" VerticalAlignment="Top"
+                               HorizontalAlignment="Left" VerticalAlignment="Center" 
                                HorizontalContentAlignment="Left"
-                           Margin="5 5 0 0" />
-                    <Label Grid.Row="3" Grid.Column="3"
-                           Foreground="#fcfafa" FontSize="15"
-                               FontWeight="SemiBold"
-                               VerticalContentAlignment="Center"      
-                               Padding="0"
-                               ContentStringFormat="{}{0:F1}" 
-                               HorizontalAlignment="Left" VerticalAlignment="Top"
-                               HorizontalContentAlignment="Left"
-                           Margin="5 5 0 0" />
+                           Margin="5 0 0 0" />
+
+                        <TextBlock Text="Mb/s" Grid.Column="1" Foreground="#fcfafa" FontSize="15"
+                                   VerticalAlignment="Center" FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"/>
+                    </Grid>
                 </Grid>
             </Border>
         </Grid>

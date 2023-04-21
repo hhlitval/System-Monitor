@@ -10,7 +10,7 @@
         <Style TargetType="lvc:LineSeries">
             <Setter Property="StrokeThickness" Value="2"/>
             <Setter Property="PointGeometrySize" Value="0"/>
-            <Setter Property="Stroke" Value="#2889fc"/>
+            <Setter Property="Stroke" Value="#05f4fc"/>
 
             <Setter Property="Fill">
                 <Setter.Value>
