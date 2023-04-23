@@ -22,6 +22,8 @@ namespace System_Monitor
 
         PerformanceCounter sentBytesPerSecond = new PerformanceCounter("Network Interface", "Bytes Sent/sec", "Qualcomm Atheros QCA9377 Wireless Network Adapter");
         PerformanceCounter receivedBytesPerSecond = new PerformanceCounter("Network Interface", "Bytes Received/sec", "Qualcomm Atheros QCA9377 Wireless Network Adapter");
+        PerformanceCounter totalBytesPerSecond = new PerformanceCounter("Network Interface", "Bytes Total/sec", "Qualcomm Atheros QCA9377 Wireless Network Adapter");
+        PerformanceCounter bandwidthBytesPerSecond = new PerformanceCounter("Network Interface", "Current Bandwidth", "Qualcomm Atheros QCA9377 Wireless Network Adapter");
 
         public MainWindow()
         {
@@ -51,7 +53,7 @@ namespace System_Monitor
             
             networkSentBytesLabel.Content = ((double)sentBytesPerSecond.NextValue())*8/1000000;
             networkReceivedBytesLabel.Content = ((double)receivedBytesPerSecond.NextValue())*8/1000000;
-            //labelPageFile.Content = (double)performancePageFile.NextValue();
+            
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)

@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Height="500" Width="700" WindowStartupLocation="CenterScreen" 
         Background="Transparent" AllowsTransparency="True"
-        WindowStyle="None" ResizeMode="NoResize">
+        WindowStyle="None" ResizeMode="NoResize" Topmost="True">
     <Border x:Name="border" Background="#0f1017" MouseDown="Border_MouseDown" CornerRadius="10">
         <Grid>
             <Grid.ColumnDefinitions>                
@@ -337,28 +337,24 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Text="Network" Style="{StaticResource titleText}" Margin="5 0 0 0"
-                               VerticalAlignment="Center" HorizontalAlignment="Left"/>                    
-                    
+                               VerticalAlignment="Center" HorizontalAlignment="Left"/> 
+
                     <Separator Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Bottom" 
                                Margin="5 0 5 0" 
                                BorderBrush="#464a63" BorderThickness="0.8"/>
                     <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Sent"
                                FontSize="12" FontWeight="SemiBold"
-                               VerticalAlignment="Bottom" 
+                               VerticalAlignment="Center" 
                                Margin="5 0 0 0" 
                                Foreground="#464a63"/>
                     <TextBlock Grid.Row="1" Grid.Column="2" Text="Received"
                                FontSize="12" FontWeight="SemiBold"
-                               VerticalAlignment="Bottom" 
+                               VerticalAlignment="Center" 
                                Margin="5 0 0 0" 
-                               Foreground="#464a63"/>                    
+                               Foreground="#464a63"/>
 
-                    <Grid Grid.Row="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="35"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label x:Name="networkSentBytesLabel" Grid.Column="0" 
+                    <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
+                        <Label x:Name="networkSentBytesLabel" 
                                Foreground="#fcfafa" FontSize="15"
                                FontWeight="SemiBold"
                                VerticalContentAlignment="Center"      
@@ -368,15 +364,11 @@
                                HorizontalContentAlignment="Left"
                            Margin="5 0 0 0" />
                         
-                        <TextBlock Text="Mb/s" Grid.Column="1" Foreground="#fcfafa" FontSize="15"
+                        <TextBlock Text="Mb/s" Foreground="#fcfafa" FontSize="15"
                                    VerticalAlignment="Center" FontWeight="SemiBold"
-                                   HorizontalAlignment="Center" />
-                    </Grid>
-                    <Grid Grid.Row="3" Grid.Column="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="35"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                                   HorizontalAlignment="Right" Padding="0" Margin="5 1 0 0"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
 
                         <Label x:Name="networkReceivedBytesLabel" Foreground="#fcfafa" FontSize="15"
                                FontWeight="SemiBold"
@@ -387,10 +379,10 @@
                                HorizontalContentAlignment="Left"
                            Margin="5 0 0 0" />
 
-                        <TextBlock Text="Mb/s" Grid.Column="1" Foreground="#fcfafa" FontSize="15"
+                        <TextBlock Text="Mb/s" Foreground="#fcfafa" FontSize="15"
                                    VerticalAlignment="Center" FontWeight="SemiBold"
-                                   HorizontalAlignment="Center"/>
-                    </Grid>
+                                   HorizontalAlignment="Right" Padding="0" Margin="5 1 0 0"/>
+                    </StackPanel>
                 </Grid>
             </Border>
         </Grid>
