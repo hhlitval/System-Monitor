@@ -99,7 +99,7 @@
                                Foreground="#464a63"/>
 
                     <Label Name="cpuTimeLabel" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
-                           Foreground="#fcfafa" FontSize="15"
+                           Foreground="#fcfafa" FontSize="14"
                                FontWeight="SemiBold"
                                VerticalContentAlignment="Center"      
                                Padding="0"
@@ -108,7 +108,7 @@
                                HorizontalContentAlignment="Left"
                            Margin="5 5 0 0" />
                     <Label Name="osCpuUsageLabel" Grid.Row="3" Grid.Column="2"
-                           Foreground="#fcfafa" FontSize="15"
+                           Foreground="#fcfafa" FontSize="14"
                                FontWeight="SemiBold"
                                VerticalContentAlignment="Center"      
                                Padding="0"
@@ -117,7 +117,7 @@
                                HorizontalContentAlignment="Left"
                            Margin="5 5 0 0" />
                     <Label Name="userCpuUsageLabel" Grid.Row="3" Grid.Column="3"
-                           Foreground="#fcfafa" FontSize="15"
+                           Foreground="#fcfafa" FontSize="14"
                                FontWeight="SemiBold"
                                VerticalContentAlignment="Center"      
                                Padding="0"
@@ -242,7 +242,7 @@
                                Style="{StaticResource titleText}" FontSize="14"
                                VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
-                    <linechart:Gauge Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2" 
+                    <linechart:Gauge Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2"
                                      Radius="60"
                                      Foreground1="#0a7af2"                                     
                                      Foreground2="#05f4fc"/>
@@ -258,29 +258,47 @@
                                VerticalAlignment="Bottom" 
                                Margin="5 0 0 0" 
                                Foreground="#464a63"/>
-
-                    <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
-                           Foreground="#fcfafa" FontSize="15"
-                               FontWeight="SemiBold"
-                               VerticalContentAlignment="Center"      
-                               Padding="0"
-                               ContentStringFormat="{}{0:F1}" 
-                               HorizontalAlignment="Left" VerticalAlignment="Top" 
-                               HorizontalContentAlignment="Left"/>
+                   
                     <TextBlock Grid.Row="5" Grid.Column="1" Text="Free"
                                FontSize="12" FontWeight="SemiBold"
                                VerticalAlignment="Bottom" 
                                Margin="5 0 0 0" 
                                Foreground="#464a63"/>
 
-                    <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"
-                           Foreground="#fcfafa" FontSize="15"
+                    <StackPanel Grid.Row="6" Grid.Column="0" Orientation="Horizontal">
+                        <Label x:Name="usedSpaceTotalLabel" Foreground="#fcfafa" FontSize="14"
                                FontWeight="SemiBold"
                                VerticalContentAlignment="Center"      
                                Padding="0"
                                ContentStringFormat="{}{0:F1}" 
-                               HorizontalAlignment="Left" VerticalAlignment="Top" 
-                               HorizontalContentAlignment="Left"/>
+                               HorizontalAlignment="Left" VerticalAlignment="Center" 
+                               HorizontalContentAlignment="Left"
+                           Margin="5 0 0 0" />
+
+                        <TextBlock Text="GB" Foreground="#fcfafa" FontSize="14"
+                                   VerticalAlignment="Center" FontWeight="SemiBold"
+                                   HorizontalAlignment="Right" Padding="0" Margin="5 0 0 0"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal">
+                        <Label x:Name="freeSpaceTotalLabel" Foreground="#fcfafa" FontSize="14"
+                               FontWeight="SemiBold"
+                               VerticalContentAlignment="Center"      
+                               Padding="0"
+                               ContentStringFormat="{}{0:F1}" 
+                               HorizontalAlignment="Left" VerticalAlignment="Center" 
+                               HorizontalContentAlignment="Left"
+                           Margin="5 0 0 0" />
+
+                        <TextBlock Text="GB" Foreground="#fcfafa" FontSize="14"
+                                   VerticalAlignment="Center" FontWeight="SemiBold"
+                                   HorizontalAlignment="Right" Padding="0" Margin="5 0 0 0"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2" Grid.Row="1" Grid.RowSpan="6" Orientation="Horizontal">
+                        <Separator Margin="10 0 0 5" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"
+                               BorderBrush="#464a63" BorderThickness="0.6">                        
+                        </Separator>
+                    </StackPanel>
 
                     <!-- Disk C -->
                     <TextBlock Text="Disk C" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" 
@@ -355,7 +373,7 @@
 
                     <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
                         <Label x:Name="networkSentBytesLabel" 
-                               Foreground="#fcfafa" FontSize="15"
+                               Foreground="#fcfafa" FontSize="14"
                                FontWeight="SemiBold"
                                VerticalContentAlignment="Center"      
                                Padding="0"
@@ -364,13 +382,13 @@
                                HorizontalContentAlignment="Left"
                            Margin="5 0 0 0" />
                         
-                        <TextBlock Text="Mb/s" Foreground="#fcfafa" FontSize="15"
+                        <TextBlock Text="Mb/s" Foreground="#fcfafa" FontSize="14"
                                    VerticalAlignment="Center" FontWeight="SemiBold"
                                    HorizontalAlignment="Right" Padding="0" Margin="5 1 0 0"/>
                     </StackPanel>
                     <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
 
-                        <Label x:Name="networkReceivedBytesLabel" Foreground="#fcfafa" FontSize="15"
+                        <Label x:Name="networkReceivedBytesLabel" Foreground="#fcfafa" FontSize="14"
                                FontWeight="SemiBold"
                                VerticalContentAlignment="Center"      
                                Padding="0"
@@ -379,7 +397,7 @@
                                HorizontalContentAlignment="Left"
                            Margin="5 0 0 0" />
 
-                        <TextBlock Text="Mb/s" Foreground="#fcfafa" FontSize="15"
+                        <TextBlock Text="Mb/s" Foreground="#fcfafa" FontSize="14"
                                    VerticalAlignment="Center" FontWeight="SemiBold"
                                    HorizontalAlignment="Right" Padding="0" Margin="5 1 0 0"/>
                     </StackPanel>

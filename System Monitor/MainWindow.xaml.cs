@@ -20,10 +20,12 @@ namespace System_Monitor
         PerformanceCounter performanceRAM = new PerformanceCounter("Memory", "% Committed Bytes In Use");
         PerformanceCounter freeRAM = new PerformanceCounter("Memory", "Available MBytes");
 
+        PerformanceCounter freeSpaceDiskTotal = new PerformanceCounter("LogicalDisk", "% Free Space", "_Total");
+        PerformanceCounter freeSpaceDiskC = new PerformanceCounter("LogicalDisk", "% Free Space", "C:");
+        PerformanceCounter freeSpaceDiskD = new PerformanceCounter("LogicalDisk", "% Free Space", "D:");
+
         PerformanceCounter sentBytesPerSecond = new PerformanceCounter("Network Interface", "Bytes Sent/sec", "Qualcomm Atheros QCA9377 Wireless Network Adapter");
-        PerformanceCounter receivedBytesPerSecond = new PerformanceCounter("Network Interface", "Bytes Received/sec", "Qualcomm Atheros QCA9377 Wireless Network Adapter");
-        PerformanceCounter totalBytesPerSecond = new PerformanceCounter("Network Interface", "Bytes Total/sec", "Qualcomm Atheros QCA9377 Wireless Network Adapter");
-        PerformanceCounter bandwidthBytesPerSecond = new PerformanceCounter("Network Interface", "Current Bandwidth", "Qualcomm Atheros QCA9377 Wireless Network Adapter");
+        PerformanceCounter receivedBytesPerSecond = new PerformanceCounter("Network Interface", "Bytes Received/sec", "Qualcomm Atheros QCA9377 Wireless Network Adapter");       
 
         public MainWindow()
         {
@@ -47,10 +49,13 @@ namespace System_Monitor
             ramProgressBar.Value = (double)performanceRAM.NextValue();
             ramLabel.Content = ramProgressBar.Value;
 
-            diskSpaceTotalLabel.Content = ((double)performanceRAM.NextValue())/100;
-            diskCLabel.Content = ((double)performanceRAM.NextValue())/100;
-            diskDLabel.Content = ((double)performanceRAM.NextValue())/100;
-            
+            diskSpaceTotalLabel.Content = (double)(1 - freeSpaceDiskTotal.NextValue()/100);
+            diskCLabel.Content = (double)(1 - freeSpaceDiskC.NextValue() / 100);
+            diskDLabel.Content = (double)(1 - freeSpaceDiskD.NextValue() / 100);
+            freeSpaceTotalLabel.Content = (double)freeSpaceDiskTotal.NextValue()*474/100;
+            usedSpaceTotalLabel.Content = 474 - (double)freeSpaceTotalLabel.Content;
+           
+
             networkSentBytesLabel.Content = ((double)sentBytesPerSecond.NextValue())*8/1000000;
             networkReceivedBytesLabel.Content = ((double)receivedBytesPerSecond.NextValue())*8/1000000;
             
