@@ -26,22 +26,29 @@
 
     <Grid>
         <lvc:CartesianChart Grid.Row="1" Margin="10" LegendLocation="None" 
-                            Series="{Binding SeriesCollection}">
+                            >
             <lvc:CartesianChart.DataTooltip>
-                <lvc:DefaultTooltip Background="#101a28" Foreground="#ffffff" BulletSize="10" 
-                                    Opacity="0.7"/>
+                <lvc:DefaultTooltip Background="Transparent" Foreground="Transparent" BulletSize="10" 
+                                    Opacity="0.7" ShowSeries="False" ShowTitle="False"/>
             </lvc:CartesianChart.DataTooltip>
+            <lvc:CartesianChart.Series>
+                <lvc:LineSeries Values="{Binding ChartValues}"/>
+            </lvc:CartesianChart.Series>
             
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis Foreground="#464a63" ShowLabels="False" Labels="{Binding Labels}">
+                <lvc:Axis Foreground="#464a63" ShowLabels="False" 
+                          LabelFormatter="{Binding DateTimeFormatter}" 
+                          MaxValue="{Binding AxisMax}" 
+                          MinValue="{Binding AxisMin}"
+                          Unit="{Binding AxisUnit}">
                     <lvc:Axis.Separator>
-                        <lvc:Separator StrokeThickness="0" Stroke="#2c3a54"/>
+                        <lvc:Separator StrokeThickness="0" Stroke="#2c3a54" Step="{Binding AxisStep}"/>
                     </lvc:Axis.Separator>
                 </lvc:Axis>
             </lvc:CartesianChart.AxisX>
 
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Foreground="#464a63" ShowLabels="True" MinValue="0" LabelFormatter="{Binding YFormatter}">
+                <lvc:Axis Foreground="#464a63" ShowLabels="True" MinValue="0" MaxValue="100">
                     <lvc:Axis.Separator>
                         <lvc:Separator StrokeThickness="0" Stroke="#2c3a54" />
                     </lvc:Axis.Separator>

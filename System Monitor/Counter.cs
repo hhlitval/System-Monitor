@@ -40,19 +40,31 @@ namespace System_Monitor
             SentBytesPerSecond = new PerformanceCounter("Network Interface", "Bytes Sent/sec", "Qualcomm Atheros QCA9377 Wireless Network Adapter");
             ReceivedBytesPerSecond = new PerformanceCounter("Network Interface", "Bytes Received/sec", "Qualcomm Atheros QCA9377 Wireless Network Adapter");
     }
+        public double GetFreeRAMInPercent()
+        {
+            return 100 - (FreeRAM.NextValue() * 100 / 16269);
+        }
+        public double GetFreeRAMInGBytes()
+        {
+            return FreeRAM.NextValue() / 1000;
+        }
+        public double GetUsedRAMInGBytes()
+        {
+            return 16.269 - (FreeRAM.NextValue() / 1000);
+        }
         public double GetFreeSpaceTotal()
         {            
-            return 1 - FreeSpaceDiskTotal.NextValue() / 100;
+            return 1 - (FreeSpaceDiskTotal.NextValue() / 100);
         }
 
         public double GetFreeSpaceDiskC()
         {
-            return 1 - FreeSpaceDiskC.NextValue() / 100;
+            return 1 - (FreeSpaceDiskC.NextValue() / 100);
         }
 
         public double GetFreeSpaceDiskD()
         {
-            return 1 - FreeSpaceDiskD.NextValue() / 100;
+            return 1 - (FreeSpaceDiskD.NextValue() / 100);
         }
 
         public double GetFreeSpaceLabel()
@@ -74,5 +86,21 @@ namespace System_Monitor
         {
             return ReceivedBytesPerSecond.NextValue() *8 / 1000000;
         }
+
+        public double GetFreeSpaceTotalGauge()
+        {
+            return 100 - FreeSpaceDiskTotal.NextValue();
+        }
+
+        public double GetFreeSpaceCGauge()
+        {
+            return 100 - FreeSpaceDiskC.NextValue();
+        }
+
+        public double GetFreeSpaceDGauge()
+        {
+            return 100 - FreeSpaceDiskD.NextValue();
+        }       
+            
     }
 }

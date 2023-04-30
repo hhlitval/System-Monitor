@@ -1,5 +1,7 @@
-﻿using System;
+﻿using LiveCharts;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,18 +15,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System_Monitor.ViewModels;
 
 namespace System_Monitor.UserControls
 {
     /// <summary>
     /// Interaction logic for Gauge.xaml
     /// </summary>
+    
     public partial class Gauge : UserControl
     {
         public Gauge()
         {
             InitializeComponent();
+             
         }
+
+        public double GaugeValue
+        {
+            get { return (double)GetValue(GaugeValueProperty); }
+            set { SetValue(GaugeValueProperty, value); }
+        }
+
+        public static readonly DependencyProperty GaugeValueProperty = DependencyProperty.Register("GaugeValue", typeof(double), typeof(Gauge));
+
         public Color Foreground1
         {
             get { return (Color)GetValue(Foreground1Property); }

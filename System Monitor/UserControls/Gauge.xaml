@@ -7,8 +7,8 @@
              xmlns:local="clr-namespace:System_Monitor.UserControls"
              mc:Ignorable="d"              
              Name="gauge">
-    <Grid>    
-        <lvc:Gauge Margin="5" Uses360Mode="True" From="0" To="100" Value="78" 
+    <Grid>
+        <lvc:Gauge Margin="5" Uses360Mode="True" From="0" To="100" Value="{Binding Path=GaugeValue, ElementName=gauge}"
                    Foreground="Transparent" InnerRadius="{Binding Path=Radius, ElementName=gauge}" >
             <lvc:Gauge.GaugeActiveFill>
                 <LinearGradientBrush>

@@ -48,7 +48,7 @@
 
                     <TextBlock Text="CPU" Style="{StaticResource titleText}" Margin="5 0 0 0"
                                VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                    <ProgressBar x:Name="cpuProgressBar" Grid.Column="1" Grid.ColumnSpan="3" 
+                    <ProgressBar x:Name="cpuProgressBar" Grid.Column="1" Grid.ColumnSpan="3"
                                  Style="{DynamicResource ProgressBarStyle}"                                  
                                  VerticalAlignment="Center" 
                                  HorizontalAlignment="Center"
@@ -58,7 +58,7 @@
                             <ColumnDefinition Width="50"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Name="cpuLabel" Grid.Column="0" 
+                        <Label Name="cpuLabel" Grid.Column="0"
                                Foreground="#fcfafa" FontSize="15"
                                FontWeight="SemiBold"
                                VerticalContentAlignment="Center"      
@@ -74,7 +74,7 @@
                                Margin="5 0 5 0" 
                                BorderBrush="#464a63" BorderThickness="0.8"/>
 
-                    <linechart:LineChart x:Name="cpuChart" Grid.Row="1" Grid.ColumnSpan="4"/>
+                    <linechart:LineChart x:Name="cpuChart" Grid.Row="1" Grid.ColumnSpan="4" />
 
                     <Separator Grid.Row="1" Grid.ColumnSpan="4" VerticalAlignment="Bottom" 
                                Margin="5 0 5 0" 
@@ -95,34 +95,51 @@
                                VerticalAlignment="Bottom" 
                                Margin="5 0 0 0" 
                                Foreground="#464a63"/>
+                    
+                <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                    <Label x:Name="cpuTimeLabel" Foreground="#fcfafa" FontSize="14"
+                               FontWeight="SemiBold"
+                               VerticalContentAlignment="Center"      
+                               Padding="0"
+                               ContentStringFormat="{}{0:F1}" 
+                               HorizontalAlignment="Left" VerticalAlignment="Center" 
+                               HorizontalContentAlignment="Left"
+                           Margin="5 0 0 0" />
 
-                    <Label Name="cpuTimeLabel" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
-                           Foreground="#fcfafa" FontSize="14"
-                               FontWeight="SemiBold"
-                               VerticalContentAlignment="Center"      
-                               Padding="0"
-                               ContentStringFormat="{} {0:F1}" 
-                               HorizontalAlignment="Left" VerticalAlignment="Top" 
-                               HorizontalContentAlignment="Left"
-                           Margin="5 5 0 0" />
-                    <Label Name="osCpuUsageLabel" Grid.Row="3" Grid.Column="2"
-                           Foreground="#fcfafa" FontSize="14"
+                    <TextBlock Text="%" Foreground="#fcfafa" FontSize="14"
+                                   VerticalAlignment="Center" FontWeight="SemiBold"
+                                   HorizontalAlignment="Right" Padding="0" Margin="5 1 0 0"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
+                    <Label x:Name="osCpuUsageLabel" Foreground="#fcfafa" FontSize="14"
                                FontWeight="SemiBold"
                                VerticalContentAlignment="Center"      
                                Padding="0"
                                ContentStringFormat="{}{0:F1}" 
-                               HorizontalAlignment="Left" VerticalAlignment="Top"
+                               HorizontalAlignment="Left" VerticalAlignment="Center" 
                                HorizontalContentAlignment="Left"
-                           Margin="5 5 0 0" />
-                    <Label Name="userCpuUsageLabel" Grid.Row="3" Grid.Column="3"
-                           Foreground="#fcfafa" FontSize="14"
+                           Margin="5 0 0 0" />
+
+                    <TextBlock Text="%" Foreground="#fcfafa" FontSize="14"
+                                   VerticalAlignment="Center" FontWeight="SemiBold"
+                                   HorizontalAlignment="Right" Padding="0" Margin="5 1 0 0"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal">
+                    <Label x:Name="userCpuUsageLabel" Foreground="#fcfafa" FontSize="14"
                                FontWeight="SemiBold"
                                VerticalContentAlignment="Center"      
                                Padding="0"
                                ContentStringFormat="{}{0:F1}" 
-                               HorizontalAlignment="Left" VerticalAlignment="Top"
+                               HorizontalAlignment="Left" VerticalAlignment="Center" 
                                HorizontalContentAlignment="Left"
-                           Margin="5 5 0 0" />
+                           Margin="5 0 0 0" />
+
+                    <TextBlock Text="%" Foreground="#fcfafa" FontSize="14"
+                                   VerticalAlignment="Center" FontWeight="SemiBold"
+                                   HorizontalAlignment="Right" Padding="0" Margin="5 1 0 0"/>
+                </StackPanel>               
                 </Grid>
             </Border>
 
@@ -178,35 +195,35 @@
                                VerticalAlignment="Bottom" 
                                Margin="5 0 0 0" 
                                Foreground="#464a63"/>
+                <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                    <Label x:Name="ramUsedLabel" Foreground="#fcfafa" FontSize="14"
+                               FontWeight="SemiBold"
+                               VerticalContentAlignment="Center"      
+                               Padding="0"
+                               ContentStringFormat="{}{0:F1}" 
+                               HorizontalAlignment="Left" VerticalAlignment="Center" 
+                               HorizontalContentAlignment="Left"
+                           Margin="5 0 0 0" />
+                    
+                    <TextBlock Text="GB" Foreground="#fcfafa" FontSize="14"
+                                   VerticalAlignment="Center" FontWeight="SemiBold"
+                                   HorizontalAlignment="Right" Padding="0" Margin="5 1 0 0"/>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Orientation="Horizontal">
+                    <Label x:Name="ramFreeLabel" Foreground="#fcfafa" FontSize="14"
+                               FontWeight="SemiBold"
+                               VerticalContentAlignment="Center"      
+                               Padding="0"
+                               ContentStringFormat="{}{0:F1}" 
+                               HorizontalAlignment="Left" VerticalAlignment="Center" 
+                               HorizontalContentAlignment="Left"
+                           Margin="5 0 0 0" />
 
-                    <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
-                           Foreground="#fcfafa" FontSize="15"
-                               FontWeight="SemiBold"
-                               VerticalContentAlignment="Center"      
-                               Padding="0"
-                               ContentStringFormat="{}{0:F1}" 
-                               HorizontalAlignment="Left" VerticalAlignment="Top" 
-                               HorizontalContentAlignment="Left"
-                           Margin="5 5 0 0" />
-                    <Label Grid.Row="3" Grid.Column="2"
-                           Foreground="#fcfafa" FontSize="15"
-                               FontWeight="SemiBold"
-                               VerticalContentAlignment="Center"      
-                               Padding="0"
-                               ContentStringFormat="{}{0:F1}" 
-                               HorizontalAlignment="Left" VerticalAlignment="Top"
-                               HorizontalContentAlignment="Left"
-                           Margin="5 5 0 0" />
-                    <Label Grid.Row="3" Grid.Column="3"
-                           Foreground="#fcfafa" FontSize="15"
-                               FontWeight="SemiBold"
-                               VerticalContentAlignment="Center"      
-                               Padding="0"
-                               ContentStringFormat="{}{0:F1}" 
-                               HorizontalAlignment="Left" VerticalAlignment="Top"
-                               HorizontalContentAlignment="Left"
-                           Margin="5 5 0 0" />
-                </Grid>
+                    <TextBlock Text="GB" Foreground="#fcfafa" FontSize="14"
+                                   VerticalAlignment="Center" FontWeight="SemiBold"
+                                   HorizontalAlignment="Right" Padding="0" Margin="5 1 0 0"/>
+                </StackPanel>
+            </Grid>
             </Border>
 
             <!-- Disk Usage -->
@@ -240,7 +257,7 @@
                                Style="{StaticResource titleText}" FontSize="14"
                                VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
-                    <linechart:Gauge Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2"
+                <linechart:Gauge x:Name="diskTotalGauge" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2" DataContext="{Binding diskSpaceTotal}"
                                      Radius="60"
                                      Foreground1="#0a7af2"                                     
                                      Foreground2="#05f4fc"/>
@@ -304,10 +321,10 @@
                                VerticalAlignment="Bottom" HorizontalAlignment="Center"
                                />
 
-                    <linechart:Gauge Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                <linechart:Gauge x:Name="diskCGauge" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2" 
                                      Radius="35"
                                      Foreground1="#0a7af2"                                     
-                                     Foreground2="#fa6e02"/>
+                                     Foreground2="#fa6e02"/>                    
 
                     <Label x:Name="diskCLabel" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"
                            Foreground="#fcfafa" FontSize="15"
@@ -322,7 +339,7 @@
                                Style="{StaticResource titleText}" FontSize="12"
                                VerticalAlignment="Bottom" HorizontalAlignment="Center"
                                />
-                    <linechart:Gauge x:Name="diskCGauge" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                <linechart:Gauge x:Name="diskDGauge" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"
                                      Radius="35"
                                      Foreground1="#0a7af2"                                     
                                      Foreground2="#ed0a02"/>
