@@ -7,19 +7,16 @@
         xmlns:local="clr-namespace:System_Monitor.Views"
         xmlns:linechart="clr-namespace:System_Monitor.UserControls"
         mc:Ignorable="d"
-        Height="500" Width="700">
+        Height="935" Width="350">
     
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-
-            </Grid.ColumnDefinitions>
+        <Grid>            
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="330"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="330"/>
+                <RowDefinition Height="110"/>
+        </Grid.RowDefinitions>
 
             <!-- Logo & Title -->
             <StackPanel Orientation="Horizontal">
@@ -31,7 +28,7 @@
             </StackPanel>
 
             <!-- CPU Info -->
-            <Border Style="{StaticResource mainBorder}" Grid.Row="1" Grid.Column="0" Margin="20 20 10 0">
+            <Border Style="{StaticResource mainBorder}" Grid.Row="1" Grid.Column="0" Margin="15 20 15 0">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="45"/>
@@ -144,7 +141,7 @@
             </Border>
 
             <!-- RAM Info -->
-            <Border Style="{StaticResource mainBorder}" Grid.Row="2" Grid.Column="0" Margin="20 10 10 20">
+            <Border Style="{StaticResource mainBorder}" Grid.Row="2" Grid.Column="0" Margin="15 10 15 0">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="45"/>
@@ -227,7 +224,7 @@
             </Border>
 
             <!-- Disk Usage -->
-            <Border Style="{StaticResource mainBorder}" Grid.Row="1" Grid.Column="1" Margin="10 20 20 0">
+            <Border Style="{StaticResource mainBorder}" Grid.Row="3" Margin="15 10 15 0">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="45"/>
@@ -355,7 +352,7 @@
             </Border>
 
             <!-- Network -->
-            <Border Style="{StaticResource mainBorder}" Grid.Row="2" Grid.Column="1" Margin="10 10 20 20">
+            <Border Style="{StaticResource mainBorder}" Grid.Row="4" Margin="15 10 15 0">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="45"/>

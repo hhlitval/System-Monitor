@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:System_Monitor.Views"
         mc:Ignorable="d"
-        Height="500" Width="700" WindowStartupLocation="CenterScreen" 
+        Height="935" Width="350" WindowStartupLocation="CenterScreen" 
         Background="Transparent" AllowsTransparency="True"
         WindowStyle="None" ResizeMode="NoResize" Topmost="True">
 
