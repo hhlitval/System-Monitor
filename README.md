@@ -27,6 +27,11 @@ The System Monitor application allows users to customize certain values to achie
 - LiveCharts library (https://v0.lvcharts.com/)
 - MahApps icon packs (https://github.com/MahApps/MahApps.Metro.IconPacks)
 
+## Preview
+![System Monitor](preview.png)
+
+
+
 ## Authors
 
 - [Alex Litvin](https://github.com/hhlitval)
