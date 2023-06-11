@@ -28,7 +28,7 @@ The System Monitor application allows users to customize certain values to achie
 - MahApps icon packs (https://github.com/MahApps/MahApps.Metro.IconPacks)
 
 ## Preview
-![System Monitor](preview.png)
+![System Monitor](preview.gif)
 
 
 
