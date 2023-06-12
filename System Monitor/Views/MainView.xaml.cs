@@ -1,5 +1,6 @@
 ﻿using LiveCharts.Wpf;
 using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
@@ -49,6 +50,11 @@ namespace System_Monitor.Views
             //Network Usage
             networkSentBytesLabel.Content = counter.GetNetworkSentBytes();
             networkReceivedBytesLabel.Content = counter.GetNetworkReceivedBytes();
-        }        
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

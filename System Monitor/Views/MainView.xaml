@@ -25,7 +25,11 @@
 
                 <TextBlock Text="System Monitor" VerticalAlignment="Bottom" Margin="5 0"
                        Style="{StaticResource titleText}"/>
-            </StackPanel>
+            <Button Style="{StaticResource menuButton}" Click="ExitButton_Click" Height="20" Width="20"                                      
+                                       VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="140 0 20 0" ToolTip="Close">
+                <Icon:PackIconMaterial Kind="Power" Style="{StaticResource menuButtonIcon}"/>
+            </Button>
+        </StackPanel>
 
             <!-- CPU Info -->
             <Border Style="{StaticResource mainBorder}" Grid.Row="1" Grid.Column="0" Margin="15 20 15 0">

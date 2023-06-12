@@ -23,6 +23,6 @@ namespace System_Monitor
             {
                 this.DragMove();
             }
-        }
+        }        
     }
 }
