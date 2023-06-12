@@ -1,8 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Diagnostics;
-using System.Windows.Threading;
+﻿using System.Windows;
 using System.Windows.Input;
 
 namespace System_Monitor

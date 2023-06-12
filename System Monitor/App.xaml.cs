@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
-using System_Monitor.ViewModels;
+﻿using System.Windows;
+using System_Monitor.Views;
 
 namespace System_Monitor
 {
@@ -19,11 +12,7 @@ namespace System_Monitor
         {
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel(
-                    new CPUViewModel(),
-                    new RAMViewModel(),
-                    new DiskViewModel(),
-                    new NetworkViewModel())
+                DataContext = new MainView()
             };
             MainWindow.Show();
 
